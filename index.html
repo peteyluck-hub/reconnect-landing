@@ -579,52 +579,68 @@ nav {
   border-radius: 2px; margin: 12px auto 4px;
 }
 
-/* ── FOUNDATION ── */
-.foundation-section {
-  padding: 130px 48px;
-  background: white;
+/* ── CLOSE (FOUNDATION + WAITLIST MERGED) ── */
+.close-section {
+  padding: 140px 48px 130px;
+  background: linear-gradient(180deg, #ffffff 0%, #ffffff 30%, var(--cream) 75%, var(--cream) 100%);
   text-align: center;
+  position: relative;
+  overflow: hidden;
 }
-.foundation-inner-centered {
+.close-section::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: radial-gradient(ellipse 60% 55% at 50% 78%, rgba(196,104,122,0.05) 0%, transparent 65%);
+  pointer-events: none;
+}
+.close-foundation {
+  max-width: 780px;
+  margin: 0 auto 100px;
+  position: relative;
+}
+.close-foundation-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(30px, 4vw, 46px);
+  font-weight: 300;
+  line-height: 1.2;
+  color: var(--text);
+  margin-bottom: 28px;
+}
+.close-foundation-title em {
+  font-style: italic;
+  color: var(--rose);
+}
+.close-foundation-body {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: clamp(17px, 2vw, 22px);
+  font-weight: 300;
+  color: var(--text2);
+  line-height: 1.65;
   max-width: 720px;
   margin: 0 auto;
 }
-.foundation-inner-centered .section-eyebrow {
-  display: inline-block;
-  margin-bottom: 24px;
-}
-.foundation-inner-centered .section-title {
-  margin-bottom: 32px;
-}
-.foundation-body-centered {
-  font-family: 'Cormorant Garamond', serif;
-  font-style: italic;
-  font-size: clamp(18px, 2.3vw, 24px);
-  font-weight: 300;
-  color: var(--text2);
-  line-height: 1.7;
-  max-width: 640px;
+.close-waitlist-inner {
+  max-width: 600px;
   margin: 0 auto;
+  position: relative;
 }
 
 /* ── WAITLIST ── */
-.waitlist-section {
-  padding: 130px 24px;
-  text-align: center; position: relative; overflow: hidden;
-}
-.waitlist-section::before {
-  content: '';
-  position: absolute; inset: 0;
-  background: radial-gradient(ellipse 70% 60% at 50% 50%, rgba(196,104,122,0.05) 0%, transparent 70%);
-  pointer-events: none;
-}
-.waitlist-inner { max-width: 600px; margin: 0 auto; position: relative; }
 .waitlist-title {
   font-family: 'Cormorant Garamond', serif;
   font-size: clamp(42px, 6vw, 68px);
   font-weight: 300; line-height: 1.1; margin-bottom: 16px;
 }
 .waitlist-title em { font-style: italic; color: var(--rose); }
+.waitlist-subhead {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: clamp(17px, 1.8vw, 20px);
+  font-weight: 300;
+  color: var(--text2);
+  margin-bottom: 36px;
+}
 .waitlist-sub {
   font-family: 'Cormorant Garamond', serif;
   font-style: italic; font-size: 18px;
@@ -745,7 +761,8 @@ footer {
   .step { grid-template-columns: 56px 1fr; gap: 20px; padding: 36px 0; }
   .step-num { font-size: 48px; }
   .product-section { padding: 80px 24px; }
-  .foundation-section { padding: 80px 24px; }
+  .close-section { padding: 90px 24px 90px; }
+  .close-foundation { margin-bottom: 72px; }
   .hero-form { flex-direction: column; }
   .hero-input { border-right: 0.5px solid rgba(0,0,0,0.15); border-bottom: none; border-radius: 12px 12px 0 0; }
   .hero-btn { border-radius: 0 0 12px 12px; }
@@ -1179,29 +1196,18 @@ footer {
   </div>
 </section>
 
-<div class="rule"></div>
-
-<!-- ── THE FOUNDATION ── -->
-<section class="foundation-section">
-  <div class="foundation-inner-centered">
-    <span class="section-eyebrow reveal">The foundation</span>
-    <h2 class="section-title reveal reveal-delay-1">Built on decades of<br><em>relationship science.</em></h2>
-    <p class="foundation-body-centered reveal reveal-delay-2">Every question, every synthesis, every prompt is grounded in evidence-based research into how people love each other, lose each other, and find their way back.</p>
+<!-- ── CLOSE (FOUNDATION + WAITLIST MERGED) ── -->
+<section class="close-section" id="waitlist">
+  <div class="close-foundation reveal">
+    <h2 class="close-foundation-title">Built on decades of <em>relationship science.</em></h2>
+    <p class="close-foundation-body">Every question, every synthesis, every prompt is grounded in evidence-based research into how people love each other, lose each other, and find their way back.</p>
   </div>
-</section>
 
-<!-- ── WAITLIST ── -->
-<section class="waitlist-section" id="waitlist">
-  <div class="waitlist-inner">
+  <div class="close-waitlist-inner">
     <h2 class="waitlist-title reveal">Your relationship<br>is <em>worth this</em>.</h2>
+    <p class="waitlist-subhead reveal reveal-delay-1">Join the waitlist.</p>
 
-    <div class="waitlist-founder-note reveal reveal-delay-1">
-      <div class="waitlist-founder-line"></div>
-      <p class="waitlist-founder-body">I've spent years sitting with couples in their hardest moments. (re)connect is what I wish I could give every couple: something that holds both of you, between the sessions, when it matters most.</p>
-      <p class="waitlist-founder-sig">Andrew Sarver, <em>LMFT</em> · Founder</p>
-    </div>
-
-    <form class="waitlist-form reveal reveal-delay-2" id="waitlist-form" onsubmit="submitForm(event, 'waitlist')">
+    <form class="waitlist-form reveal reveal-delay-1" id="waitlist-form" onsubmit="submitForm(event, 'waitlist')">
       <input class="waitlist-input" type="email" id="waitlist-email" placeholder="Your email address" required/>
       <button class="waitlist-btn" type="submit">Join waitlist</button>
     </form>
@@ -1209,6 +1215,12 @@ footer {
     <div id="waitlist-success" class="success-state" style="margin-top:0;">
       <div class="success-title">You're on the list.</div>
       <div class="success-body">We'll reach out when (re)connect is ready. In the meantime, notice one thing about your partner this week that you might have walked past. That's where this begins.</div>
+    </div>
+
+    <div class="waitlist-founder-note reveal reveal-delay-2">
+      <div class="waitlist-founder-line"></div>
+      <p class="waitlist-founder-body">I've spent years sitting with couples in their hardest moments. (re)connect is what I wish I could give every couple: something that holds both of you, between the sessions, when it matters most.</p>
+      <p class="waitlist-founder-sig">Andrew Sarver, <em>LMFT</em> · Founder</p>
     </div>
 
     <p class="waitlist-note reveal reveal-delay-3">No spam. No pressure. Just early access when we're ready.</p>
