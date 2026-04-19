@@ -704,6 +704,16 @@ nav {
   max-width: 420px; margin: 0 auto;
 }
 .success-state.visible { display: block; }
+
+/* ── FORM ERROR ── */
+.form-error {
+  margin-top: 10px;
+  font-size: 13px;
+  color: #B03545;
+  text-align: center;
+  font-weight: 400;
+}
+.form-error[hidden] { display: none; }
 .success-title {
   font-family: 'Cormorant Garamond', serif;
   font-size: 24px; font-style: italic;
@@ -811,6 +821,7 @@ footer {
     <input class="hero-input" type="email" id="hero-email" placeholder="Your email address" required/>
     <button class="hero-btn" type="submit">Join waitlist</button>
   </form>
+  <div class="form-error" id="hero-error" hidden></div>
   <div id="hero-success" class="success-state" style="margin-top:16px;">
     <div class="success-title">You're on the list.</div>
     <div class="success-body">We'll be in touch when (re)connect is ready for you. In the meantime, notice one thing your partner does this week that you would have missed before.</div>
@@ -1211,6 +1222,7 @@ footer {
       <input class="waitlist-input" type="email" id="waitlist-email" placeholder="Your email address" required/>
       <button class="waitlist-btn" type="submit">Join waitlist</button>
     </form>
+    <div class="form-error" id="waitlist-error" hidden></div>
 
     <div id="waitlist-success" class="success-state" style="margin-top:0;">
       <div class="success-title">You're on the list.</div>
@@ -1237,6 +1249,10 @@ footer {
 </footer>
 
 <script>
+// ── SUPABASE (waitlist) ──
+const SUPABASE_URL = 'https://kqnrzrmngffmbigrmyjq.supabase.co';
+const SUPABASE_KEY = 'sb_publishable_uEyPJ7ANGVjVGRsrxlWghw_QcTIMrEx';
+
 // ── SCROLL REVEAL ──
 (function() {
   const reveals = document.querySelectorAll('.reveal');
@@ -1399,16 +1415,77 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 // ── FORM SUBMIT ──
-function submitForm(e, type) {
+async function submitForm(e, type) {
   e.preventDefault();
-  const emailId = type === 'hero' ? 'hero-email' : 'waitlist-email';
-  const email = document.getElementById(emailId);
   const form = e.target;
-  const successId = type === 'hero' ? 'hero-success' : 'waitlist-success';
-  const success = document.getElementById(successId);
-  if (form) form.style.display = 'none';
-  if (success) success.classList.add('visible');
-  console.log('Waitlist signup:', email ? email.value : 'unknown');
+  const emailEl = document.getElementById(type + '-email');
+  const successEl = document.getElementById(type + '-success');
+  const errorEl = document.getElementById(type + '-error');
+  const btn = form.querySelector('button[type="submit"]');
+
+  // Always clear any prior error first — so a retry starts clean.
+  if (errorEl) { errorEl.hidden = true; errorEl.textContent = ''; }
+
+  const email = (emailEl && emailEl.value || '').trim().toLowerCase();
+  if (!email) return;
+
+  const originalText = btn.textContent;
+  btn.disabled = true;
+  btn.textContent = 'Joining…';
+
+  try {
+    const res = await fetch(SUPABASE_URL + '/rest/v1/waitlist_signups', {
+      method: 'POST',
+      headers: {
+        'apikey': SUPABASE_KEY,
+        'Authorization': 'Bearer ' + SUPABASE_KEY,
+        'Content-Type': 'application/json',
+        'Prefer': 'return=minimal',
+      },
+      body: JSON.stringify({
+        email: email,
+        source: 'landing-v2-' + type,
+        referrer: document.referrer || null,
+        user_agent: navigator.userAgent,
+      }),
+    });
+
+    if (res.ok) {
+      form.style.display = 'none';
+      if (successEl) successEl.classList.add('visible');
+      return;
+    }
+
+    if (res.status === 409) {
+      // Duplicate — already on the list. Swap to a friendlier wording.
+      form.style.display = 'none';
+      if (successEl) {
+        const title = successEl.querySelector('.success-title');
+        const body = successEl.querySelector('.success-body');
+        if (title) title.textContent = "You're already on the list.";
+        if (body) body.textContent = "Thanks for the second vote of confidence. We'll reach out when (re)connect is ready.";
+        successEl.classList.add('visible');
+      }
+      return;
+    }
+
+    if (res.status >= 400 && res.status < 500) {
+      showFormError(errorEl, 'Please enter a valid email.');
+    } else {
+      showFormError(errorEl, 'Something went wrong. Please try again in a moment.');
+    }
+  } catch (err) {
+    showFormError(errorEl, "Couldn't reach the server. Check your connection and try again.");
+  } finally {
+    btn.disabled = false;
+    btn.textContent = originalText;
+  }
+}
+
+function showFormError(el, msg) {
+  if (!el) return;
+  el.textContent = msg;
+  el.hidden = false;
 }
 
 // ── PHONE ANIMATIONS ON SCROLL (Version A) ──
