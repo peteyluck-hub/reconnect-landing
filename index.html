@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>(re)connect — a modern solution for working it out</title>
+<title>(re)connect · a modern solution for working it out</title>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=Jost:wght@200;300;400;500&display=swap" rel="stylesheet">
 <style>
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -185,6 +185,26 @@ nav {
   opacity: 0; animation: fadeUp 0.8s ease 1.3s forwards;
 }
 
+.hero-founder {
+  display: flex; align-items: center; gap: 14px;
+  margin-top: 56px;
+  opacity: 0; animation: fadeUp 0.9s ease 1.8s forwards;
+}
+.hero-founder-line {
+  width: 24px; height: 0.5px; background: var(--rose-bd);
+}
+.hero-founder-text {
+  font-size: 10px; font-weight: 400; letter-spacing: 2px;
+  text-transform: uppercase; color: var(--text3);
+}
+.hero-founder-text em {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic; font-weight: 400;
+  color: var(--rose); text-transform: none;
+  letter-spacing: 0.5px; font-size: 13px;
+  margin-left: 2px;
+}
+
 /* ── DIVIDER ── */
 .rule {
   width: 100%; height: 0.5px;
@@ -209,7 +229,8 @@ nav {
 }
 
 /* ── THE GAP ── */
-.gap-section { padding: 110px 48px; max-width: 1140px; margin: 0 auto; }
+.gap-section { padding: 110px 48px; background: var(--warm-white); }
+.gap-section .gap-inner { max-width: 1140px; margin: 0 auto; }
 .gap-inner {
   display: grid; grid-template-columns: 1fr 1fr;
   gap: 100px; align-items: center;
@@ -278,6 +299,37 @@ nav {
   max-width: 680px;
 }
 .callout em { font-style: italic; color: var(--rose); }
+
+/* Dual stream visual */
+.dual-stream {
+  max-width: 780px;
+  margin: 0 auto 48px;
+  padding: 0 12px;
+}
+.dual-svg {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+@keyframes synthPulseB {
+  0%, 100% { opacity: 0.85; transform-origin: center; }
+  50% { opacity: 1; }
+}
+.synth-pulse {
+  animation: synthPulseB 2.4s ease-in-out infinite;
+  transform-origin: 360px 130px;
+}
+.flow-rose, .flow-blue, .flow-rose-2, .flow-blue-2 {
+  stroke-dasharray: 500;
+  stroke-dashoffset: 500;
+  animation: drawFlow 2.2s ease-out 0.4s forwards;
+}
+.flow-rose-2 { animation-delay: 0.7s; }
+.flow-blue { animation-delay: 0.5s; }
+.flow-blue-2 { animation-delay: 0.9s; }
+@keyframes drawFlow {
+  to { stroke-dashoffset: 0; }
+}
 .different-close {
   font-size: 15px; font-weight: 300;
   color: rgba(255,255,255,0.4);
@@ -528,27 +580,31 @@ nav {
 }
 
 /* ── FOUNDATION ── */
-.foundation-section { padding: 110px 48px; background: white; }
-.foundation-inner {
-  max-width: 1140px; margin: 0 auto;
-  display: grid; grid-template-columns: 1fr 1fr;
-  gap: 100px; align-items: center;
+.foundation-section {
+  padding: 130px 48px;
+  background: white;
+  text-align: center;
 }
-.foundation-quote {
+.foundation-inner-centered {
+  max-width: 720px;
+  margin: 0 auto;
+}
+.foundation-inner-centered .section-eyebrow {
+  display: inline-block;
+  margin-bottom: 24px;
+}
+.foundation-inner-centered .section-title {
+  margin-bottom: 32px;
+}
+.foundation-body-centered {
   font-family: 'Cormorant Garamond', serif;
   font-style: italic;
-  font-size: clamp(18px, 2.2vw, 24px);
-  font-weight: 300; line-height: 1.7;
-  color: var(--navy);
-  border-left: 1.5px solid var(--rose);
-  padding: 28px 36px;
-  background: var(--rose-lt);
-  border-radius: 0 16px 16px 0;
-}
-.foundation-attr {
-  font-size: 11px; font-weight: 400; letter-spacing: 1.5px;
-  text-transform: uppercase; color: var(--text3);
-  margin-top: 16px; padding-left: 36px;
+  font-size: clamp(18px, 2.3vw, 24px);
+  font-weight: 300;
+  color: var(--text2);
+  line-height: 1.7;
+  max-width: 640px;
+  margin: 0 auto;
 }
 
 /* ── WAITLIST ── */
@@ -598,6 +654,32 @@ nav {
   margin-top: 16px; line-height: 1.7;
 }
 
+.waitlist-founder-note {
+  max-width: 520px; margin: 48px auto;
+  text-align: left;
+}
+.waitlist-founder-line {
+  width: 32px; height: 0.5px;
+  background: var(--rose-bd);
+  margin-bottom: 22px;
+}
+.waitlist-founder-body {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 17px; font-weight: 300; font-style: italic;
+  line-height: 1.8; color: var(--navy);
+  margin-bottom: 14px;
+}
+.waitlist-founder-sig {
+  font-size: 10px; font-weight: 400; letter-spacing: 2px;
+  text-transform: uppercase; color: var(--text3);
+}
+.waitlist-founder-sig em {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic; color: var(--rose);
+  text-transform: none; font-size: 13px;
+  letter-spacing: 0.5px;
+}
+
 /* ── SUCCESS STATE ── */
 .success-state {
   display: none; padding: 32px;
@@ -629,12 +711,29 @@ footer {
   to { opacity: 1; transform: translateY(0); }
 }
 
+@keyframes gentleFloat {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+}
+.phone.float-gentle {
+  animation: gentleFloat 5s ease-in-out infinite;
+}
+
 /* ── RESPONSIVE ── */
-@media (max-width: 760px) {
-  .three-phones { flex-direction: column; align-items: center; gap: 40px; }
-  .phone-left .phone, .phone-right .phone { width: 280px; transform: none; opacity: 1; }
+@media (max-width: 960px) {
+  .three-phones {
+    flex-direction: column;
+    align-items: center;
+    gap: 48px;
+  }
+  .phone-left .phone,
+  .phone-right .phone,
+  .phone-hero {
+    width: 280px;
+    transform: none;
+    opacity: 1;
+  }
   .phone-center { transform: none; }
-  .phone-hero { width: 280px; }
 }
 
 @media (max-width: 768px) {
@@ -647,7 +746,6 @@ footer {
   .step-num { font-size: 48px; }
   .product-section { padding: 80px 24px; }
   .foundation-section { padding: 80px 24px; }
-  .foundation-inner { grid-template-columns: 1fr; gap: 48px; }
   .hero-form { flex-direction: column; }
   .hero-input { border-right: 0.5px solid rgba(0,0,0,0.15); border-bottom: none; border-radius: 12px 12px 0 0; }
   .hero-btn { border-radius: 0 0 12px 12px; }
@@ -698,7 +796,7 @@ footer {
   </form>
   <div id="hero-success" class="success-state" style="margin-top:16px;">
     <div class="success-title">You're on the list.</div>
-    <div class="success-body">We'll be in touch when (re)connect is ready for you. In the meantime — notice one thing your partner does this week that you would have missed before.</div>
+    <div class="success-body">We'll be in touch when (re)connect is ready for you. In the meantime, notice one thing your partner does this week that you would have missed before.</div>
   </div>
   <p class="hero-privacy">No spam. No pressure. Just early access when we're ready.</p>
 </section>
@@ -711,13 +809,13 @@ footer {
     <div>
       <span class="section-eyebrow reveal">The gap</span>
       <h2 class="section-title reveal reveal-delay-1">Most couples don't need more information.<br>They need an <em>understanding.</em></h2>
-      <p class="section-body reveal reveal-delay-2">When attachment needs feel threatened, the nervous system reacts — often in ways that make things worse. One partner reaches, the other withdraws.</p>
+      <p class="section-body reveal reveal-delay-2">When attachment needs feel threatened, the nervous system reacts, often in ways that make things worse. One partner reaches, the other withdraws.</p>
       <div class="pull reveal reveal-delay-3">It's not a failure of love.<br><span style="padding-left:3.5em;">It's the absence of support.</span></div>
       <p class="gap-closing reveal reveal-delay-4">(re)connect lives in that space.</p>
     </div>
     <div class="reveal reveal-delay-2">
-      <p class="section-body" style="margin-bottom:24px;">Couples therapy is powerful — but it's once a week, starting at $200 an hour, long after the moment has passed. Most couples who need support never get it. And those who do are largely on their own between sessions.</p>
-      <p class="section-body" style="font-style:italic; color: var(--text3); font-size:14px; line-height:1.8;">Most couples wait years after serious problems begin before seeking help — not because they don't care, but because nothing existed in between.</p>
+      <p class="section-body" style="margin-bottom:24px;">Couples therapy is powerful, but it's weekly, costly, and often begins too late. Most couples who need support never get it. And those who do are largely on their own between sessions.</p>
+      <p class="section-body" style="font-style:italic; color: var(--text3); font-size:14px; line-height:1.8;">Most couples wait too long. Not because they don't care, but because nothing existed in between. By the time they look for help, something's already broken.</p>
     </div>
   </div>
 </div>
@@ -729,12 +827,82 @@ footer {
   <div class="different-inner">
     <span class="different-eyebrow reveal">What makes it different</span>
     <h2 class="different-headline reveal reveal-delay-1">Most relationship tools<br>only hear <em style="color:var(--rose);">one side.</em></h2>
-    <p class="different-body reveal reveal-delay-2">Every other app asks one person how the relationship is going. That person answers honestly — from their own experience. And it's incomplete.</p>
-    <p class="different-body reveal reveal-delay-3" style="margin-bottom:0;">(re)connect was built around a different idea. Each partner engages independently — privately, without knowing what the other said.</p>
+    <p class="different-body reveal reveal-delay-2">Most apps ask one person how the relationship is going. That person answers honestly, from their own experience. And it's incomplete.</p>
+    <p class="different-body reveal reveal-delay-3" style="margin-bottom:48px;">(re)connect was built around a different idea. Each partner engages independently, privately, without knowing what the other said.</p>
+
+    <!-- DUAL STREAM VISUAL -->
+    <div class="dual-stream reveal reveal-slow reveal-delay-2">
+      <svg class="dual-svg" viewBox="0 0 720 260" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <defs>
+          <linearGradient id="roseFlow" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" stop-color="#C4687A" stop-opacity="0"/>
+            <stop offset="30%" stop-color="#C4687A" stop-opacity="0.85"/>
+            <stop offset="100%" stop-color="#C4687A" stop-opacity="0.6"/>
+          </linearGradient>
+          <linearGradient id="blueFlow" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" stop-color="#4a90d9" stop-opacity="0"/>
+            <stop offset="30%" stop-color="#4a90d9" stop-opacity="0.85"/>
+            <stop offset="100%" stop-color="#4a90d9" stop-opacity="0.6"/>
+          </linearGradient>
+          <radialGradient id="centerGlow" cx="50%" cy="50%" r="50%">
+            <stop offset="0%" stop-color="rgba(255,255,255,0.18)"/>
+            <stop offset="60%" stop-color="rgba(255,255,255,0.05)"/>
+            <stop offset="100%" stop-color="rgba(255,255,255,0)"/>
+          </radialGradient>
+        </defs>
+
+        <!-- Center synthesis glow -->
+        <circle cx="360" cy="130" r="110" fill="url(#centerGlow)"/>
+
+        <!-- Partner A label + dot -->
+        <circle cx="60" cy="130" r="18" fill="#C4687A" opacity="0.18"/>
+        <circle cx="60" cy="130" r="6" fill="#C4687A"/>
+        <text x="60" y="185" text-anchor="middle" font-family="Jost, sans-serif" font-size="9" font-weight="400" letter-spacing="2" fill="rgba(255,255,255,0.5)" text-transform="uppercase">Partner A</text>
+        <text x="60" y="200" text-anchor="middle" font-family="Cormorant Garamond, serif" font-size="10" font-style="italic" fill="rgba(255,255,255,0.3)">private input</text>
+
+        <!-- Partner B label + dot -->
+        <circle cx="660" cy="130" r="18" fill="#4a90d9" opacity="0.18"/>
+        <circle cx="660" cy="130" r="6" fill="#4a90d9"/>
+        <text x="660" y="185" text-anchor="middle" font-family="Jost, sans-serif" font-size="9" font-weight="400" letter-spacing="2" fill="rgba(255,255,255,0.5)" text-transform="uppercase">Partner B</text>
+        <text x="660" y="200" text-anchor="middle" font-family="Cormorant Garamond, serif" font-size="10" font-style="italic" fill="rgba(255,255,255,0.3)">private input</text>
+
+        <!-- Flowing rose stream (Partner A → center) -->
+        <path class="flow-rose" d="M 80 130 Q 200 90, 340 130" stroke="url(#roseFlow)" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+        <path class="flow-rose-2" d="M 80 130 Q 200 170, 340 130" stroke="url(#roseFlow)" stroke-width="1" fill="none" stroke-linecap="round" opacity="0.5"/>
+
+        <!-- Flowing blue stream (Partner B → center) -->
+        <path class="flow-blue" d="M 640 130 Q 520 90, 380 130" stroke="url(#blueFlow)" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+        <path class="flow-blue-2" d="M 640 130 Q 520 170, 380 130" stroke="url(#blueFlow)" stroke-width="1" fill="none" stroke-linecap="round" opacity="0.5"/>
+
+        <!-- Synthesis node -->
+        <circle cx="360" cy="130" r="42" fill="none" stroke="rgba(255,255,255,0.15)" stroke-width="0.5"/>
+        <circle cx="360" cy="130" r="28" fill="rgba(255,255,255,0.04)" stroke="rgba(255,255,255,0.25)" stroke-width="0.5"/>
+        <circle class="synth-pulse" cx="360" cy="130" r="12" fill="#fff" opacity="0.85"/>
+
+        <!-- Center label -->
+        <text x="360" y="198" text-anchor="middle" font-family="Jost, sans-serif" font-size="9" font-weight="500" letter-spacing="2.5" fill="rgba(255,255,255,0.7)" text-transform="uppercase">The synthesis</text>
+        <text x="360" y="215" text-anchor="middle" font-family="Cormorant Garamond, serif" font-size="11" font-style="italic" fill="rgba(255,255,255,0.45)">what neither could see alone</text>
+
+        <!-- Flowing data pulses -->
+        <circle class="pulse-rose-1" r="2.5" fill="#C4687A">
+          <animateMotion dur="3.2s" repeatCount="indefinite" path="M 80 130 Q 200 90, 340 130"/>
+        </circle>
+        <circle class="pulse-rose-2" r="2" fill="#C4687A" opacity="0.6">
+          <animateMotion dur="3.5s" begin="0.8s" repeatCount="indefinite" path="M 80 130 Q 200 170, 340 130"/>
+        </circle>
+        <circle class="pulse-blue-1" r="2.5" fill="#4a90d9">
+          <animateMotion dur="3.2s" begin="0.5s" repeatCount="indefinite" path="M 640 130 Q 520 90, 380 130"/>
+        </circle>
+        <circle class="pulse-blue-2" r="2" fill="#4a90d9" opacity="0.6">
+          <animateMotion dur="3.5s" begin="1.3s" repeatCount="indefinite" path="M 640 130 Q 520 170, 380 130"/>
+        </circle>
+      </svg>
+    </div>
+
     <div class="callout reveal reveal-slow reveal-delay-3">
       Two sides of the story.<br><em>One truth of the relationship.</em>
     </div>
-    <p class="different-close reveal reveal-delay-2">That synthesis is the product. It gets sharper the longer you use it — learning the patterns that repeat, the moments that matter. Not a generic algorithm. Something that knows you.</p>
+    <p class="different-close reveal reveal-delay-2">That synthesis is the product. It gets sharper the longer you use it, learning the patterns that repeat, the moments that matter. Not a generic algorithm. Something that knows you.</p>
   </div>
 </section>
 
@@ -752,8 +920,8 @@ footer {
       <div class="step reveal">
         <div class="step-num">01</div>
         <div class="step-content">
-          <div class="step-title">Each of you shares your experience — <em>privately.</em></div>
-          <div class="step-body">Every day, each partner takes a few minutes to reflect on the relationship independently. Closeness. Support. Conflict. Appreciation. Trust. Your answers are yours alone — not compared, not shared. This is your (re)turn — a daily return to yourself, and toward your partner.</div>
+          <div class="step-title">Each of you shares your experience, <em>privately.</em></div>
+          <div class="step-body">Every day, each partner takes a few minutes to reflect on the relationship independently. Closeness. Support. Conflict. Appreciation. Trust. Your answers are yours alone, not compared, not shared. This is your (re)turn: a daily return to yourself, and toward your partner.</div>
         </div>
       </div>
       <div class="step reveal reveal-delay-1">
@@ -767,7 +935,7 @@ footer {
         <div class="step-num">03</div>
         <div class="step-content">
           <div class="step-title">Over time, it <em>notices what you can't.</em></div>
-          <div class="step-body">The system watches across weeks and months — seeing patterns before you do, knowing when stress is showing up relationally. It delivers what this specific relationship needs, and gets more precise the longer you use it.</div>
+          <div class="step-body">The system watches across weeks and months, seeing patterns before you do, knowing when stress is showing up relationally. It delivers what this specific relationship needs, and gets more precise the longer you use it.</div>
         </div>
       </div>
     </div>
@@ -930,7 +1098,7 @@ footer {
               <!-- Pending invitation -->
               <div style="border:0.5px solid var(--rose-bd);border-radius:12px;padding:12px;background:var(--rose-lt);">
                 <div style="font-size:8px;font-weight:500;letter-spacing:1.2px;text-transform:uppercase;color:var(--rose);margin-bottom:4px;">Invitation waiting</div>
-                <div style="font-family:'Cormorant Garamond',serif;font-size:14px;font-weight:400;color:var(--navy);margin-bottom:8px;">(re)kindle — Close the distance between you</div>
+                <div style="font-family:'Cormorant Garamond',serif;font-size:14px;font-weight:400;color:var(--navy);margin-bottom:8px;">(re)kindle · Close the distance between you</div>
                 <button style="background:var(--rose);color:white;border:none;border-radius:8px;padding:7px 14px;font-family:'Jost',sans-serif;font-size:9px;font-weight:400;letter-spacing:1.2px;text-transform:uppercase;cursor:pointer;">Open invitation</button>
               </div>
 
@@ -1015,18 +1183,10 @@ footer {
 
 <!-- ── THE FOUNDATION ── -->
 <section class="foundation-section">
-  <div class="foundation-inner">
-    <div>
-      <span class="section-eyebrow reveal">The foundation</span>
-      <h2 class="section-title reveal reveal-delay-1">Built on decades of<br><em>relationship science.</em></h2>
-      <p class="section-body reveal reveal-delay-2">Every question, every synthesis, every prompt is grounded in evidence-based research into how people love, hurt each other, and find their way back.</p>
-    </div>
-    <div class="reveal reveal-delay-2">
-      <div class="foundation-quote">
-        "Feeling understood — not agreed with, not fixed, but genuinely understood — is one of the most healing things one person can offer another."
-      </div>
-      <div class="foundation-attr">Andrew Sarver, LMFT · Founder</div>
-    </div>
+  <div class="foundation-inner-centered">
+    <span class="section-eyebrow reveal">The foundation</span>
+    <h2 class="section-title reveal reveal-delay-1">Built on decades of<br><em>relationship science.</em></h2>
+    <p class="foundation-body-centered reveal reveal-delay-2">Every question, every synthesis, every prompt is grounded in evidence-based research into how people love each other, lose each other, and find their way back.</p>
   </div>
 </section>
 
@@ -1034,7 +1194,12 @@ footer {
 <section class="waitlist-section" id="waitlist">
   <div class="waitlist-inner">
     <h2 class="waitlist-title reveal">Your relationship<br>is <em>worth this</em>.</h2>
-    <p class="waitlist-sub reveal reveal-delay-1">Join the waitlist. Be among the first couples to use (re)connect when we launch.</p>
+
+    <div class="waitlist-founder-note reveal reveal-delay-1">
+      <div class="waitlist-founder-line"></div>
+      <p class="waitlist-founder-body">I've spent years sitting with couples in their hardest moments. (re)connect is what I wish I could give every couple: something that holds both of you, between the sessions, when it matters most.</p>
+      <p class="waitlist-founder-sig">Andrew Sarver, <em>LMFT</em> · Founder</p>
+    </div>
 
     <form class="waitlist-form reveal reveal-delay-2" id="waitlist-form" onsubmit="submitForm(event, 'waitlist')">
       <input class="waitlist-input" type="email" id="waitlist-email" placeholder="Your email address" required/>
@@ -1043,13 +1208,10 @@ footer {
 
     <div id="waitlist-success" class="success-state" style="margin-top:0;">
       <div class="success-title">You're on the list.</div>
-      <div class="success-body">We'll reach out when (re)connect is ready. In the meantime — notice one thing about your partner this week that you might have walked past. That's where this begins.</div>
+      <div class="success-body">We'll reach out when (re)connect is ready. In the meantime, notice one thing about your partner this week that you might have walked past. That's where this begins.</div>
     </div>
 
-    <p class="waitlist-note reveal reveal-delay-3">
-      No spam. No pressure. Just early access when we're ready.<br>
-      (re)connect is Patent Pending · Built by a licensed marriage and family therapist
-    </p>
+    <p class="waitlist-note reveal reveal-delay-3">No spam. No pressure. Just early access when we're ready.</p>
   </div>
 </section>
 
@@ -1084,12 +1246,12 @@ footer {
   const rule = document.getElementById('heroRule');
 
   const invitations = ['flect', 'kindle', 'imagine', 'pair', 'solve', 'turn'];
-  const holdName   = 2400;
-  const holdWord   = 1800;
-  const fadeWord   = 700;
-  const fadeName   = 1400;
-  const swapPause  = 80;
-  const initialDelay = 1600;
+  const holdName   = 1400;
+  const holdWord   = 1100;
+  const fadeWord   = 450;
+  const fadeName   = 850;
+  const swapPause  = 60;
+  const initialDelay = 1000;
 
   function setOpacity(val, duration) {
     suffix.style.transition = `opacity ${duration}ms ease`;
@@ -1168,7 +1330,7 @@ footer {
 
 // ── TYPEWRITER — SYNTHESIS SCREEN ──
 (function() {
-  const text = "Appreciation is the quietest of the dimensions — and the most telling. This week, one of you has been feeling it more than the other has been expressing it. That's not a failure. It's an invitation. The thing that would matter most right now costs almost nothing to give.";
+  const text = "Appreciation is the quietest of the dimensions, and the most telling. This week, one of you has been feeling it more than the other has been expressing it. That's not a failure. It's an invitation. The thing that would matter most right now costs almost nothing to give.";
   const el = document.getElementById('typewriter-text');
   const cursor = document.getElementById('typewriter-cursor');
   if (!el) return;
@@ -1236,6 +1398,81 @@ function submitForm(e, type) {
   if (success) success.classList.add('visible');
   console.log('Waitlist signup:', email ? email.value : 'unknown');
 }
+
+// ── PHONE ANIMATIONS ON SCROLL (Version A) ──
+(function() {
+  // Animate left phone sliders when product section enters view
+  const leftPhone = document.querySelector('.phone-left');
+  if (leftPhone) {
+    const sliderObs = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const sliders = leftPhone.querySelectorAll('.screen-slider');
+          sliders.forEach((s, i) => {
+            const finalVal = parseInt(s.value);
+            s.value = 1;
+            const isBlue = s.classList.contains('blue-slider');
+            const color = isBlue ? '#4a90d9' : '#C4687A';
+            s.style.background = `linear-gradient(90deg, ${color} 0%, ${color} 0%, rgba(0,0,0,0.08) 0%)`;
+            setTimeout(() => {
+              let cur = 1;
+              const step = () => {
+                if (cur >= finalVal) return;
+                cur += 0.3;
+                if (cur > finalVal) cur = finalVal;
+                s.value = cur;
+                const pct = ((cur - 1) / 9) * 100;
+                s.style.background = `linear-gradient(90deg, ${color} 0%, ${color} ${pct}%, rgba(0,0,0,0.08) ${pct}%)`;
+                const nameId = s.parentElement.querySelector('.screen-dim-val').id.replace('val-','');
+                const valEl = document.getElementById('val-' + nameId);
+                if (valEl) valEl.textContent = Math.round(cur);
+                requestAnimationFrame(step);
+              };
+              step();
+            }, 180 * i);
+          });
+          sliderObs.disconnect();
+        }
+      });
+    }, { threshold: 0.35 });
+    sliderObs.observe(leftPhone);
+  }
+
+  // Gentle float on center phone
+  const centerPhone = document.querySelector('.phone-center .phone');
+  if (centerPhone) {
+    const floatObs = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          centerPhone.classList.add('float-gentle');
+          floatObs.disconnect();
+        }
+      });
+    }, { threshold: 0.3 });
+    floatObs.observe(centerPhone);
+  }
+
+  // Synthesis comparison bars draw in
+  const rightPhone = document.querySelector('.phone-right');
+  if (rightPhone) {
+    const barsObs = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          setTimeout(() => {
+            rightPhone.querySelectorAll('.phone-right [style*="height:100%"]').forEach((bar, i) => {
+              const w = bar.style.width;
+              bar.style.width = '0%';
+              bar.style.transition = 'width 1.1s cubic-bezier(0.22, 1, 0.36, 1)';
+              setTimeout(() => { bar.style.width = w; }, 60 * i + 400);
+            });
+          }, 100);
+          barsObs.disconnect();
+        }
+      });
+    }, { threshold: 0.3 });
+    barsObs.observe(rightPhone);
+  }
+})();
 </script>
 
 </body>
