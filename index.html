@@ -159,13 +159,30 @@ nav {
   font-size: 10px; font-weight: 400;
   letter-spacing: 2.5px; text-transform: uppercase;
   color: var(--text2); max-width: 540px; line-height: 1.7;
-  margin-bottom: 48px;
+  margin-bottom: 32px;
   opacity: 0; animation: fadeUp 1.0s ease 2.5s forwards;
 }
 
+.hero-stack {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 19px;
+  font-weight: 300;
+  font-style: italic;
+  color: var(--text2);
+  max-width: 620px;
+  line-height: 1.45;
+  letter-spacing: 0.2px;
+  margin: 0 0 14px;
+  opacity: 0;
+  animation: fadeUp 0.9s ease forwards;
+}
+.hero-stack:last-of-type { margin-bottom: 56px; }
+.hero-stack.delay-1 { animation-delay: 2.7s; }
+.hero-stack.delay-2 { animation-delay: 2.85s; }
+
 .hero-form {
   display: flex; gap: 0; max-width: 440px; width: 100%;
-  opacity: 0; animation: fadeUp 0.9s ease 2.9s forwards;
+  opacity: 0; animation: fadeUp 0.9s ease 3.1s forwards;
 }
 .hero-input {
   flex: 1; padding: 16px 20px;
@@ -194,7 +211,7 @@ nav {
 .hero-privacy {
   font-size: 11px; font-weight: 300; color: var(--text3);
   margin-top: 12px;
-  opacity: 0; animation: fadeUp 0.8s ease 3.2s forwards;
+  opacity: 0; animation: fadeUp 0.8s ease 3.4s forwards;
 }
 
 .hero-founder {
@@ -834,6 +851,9 @@ footer {
 
   <p class="hero-sub">a modern solution for working it out</p>
 
+  <p class="hero-stack delay-1">A daily return to yourself, your partner, and the space between.</p>
+  <p class="hero-stack delay-2">Each partner reflects separately. (re)connect holds both perspectives, then reveals what begins to emerge between you.</p>
+
   <form class="hero-form" onsubmit="submitForm(event, 'hero')">
     <input class="hero-input" type="email" id="hero-email" placeholder="Your email address" required/>
     <button class="hero-btn" type="submit">Join waitlist</button>
@@ -859,7 +879,7 @@ footer {
       <p class="gap-closing reveal reveal-delay-4">(re)connect lives in that space.</p>
     </div>
     <div class="reveal reveal-delay-2">
-      <p class="section-body" style="margin-bottom:24px;">Couples therapy is powerful, but it's weekly, costly, and it's often a last resort. Most couples who need support never get it. And those who do are largely on their own between sessions.</p>
+      <p class="section-body" style="margin-bottom:24px;">Couples therapy can be powerful, but it's weekly, costly, and often a last resort. And most of the relationship happens outside the room: after the conflict ends, after both people retreat into their own version of what just happened.</p>
       <p class="section-body" style="font-style:italic; color: var(--text3); font-size:14px; line-height:1.8;">Most couples wait too long. Not because they don't care, but because nothing existed in between. By the time they look for help, something's already broken.</p>
     </div>
   </div>
@@ -903,13 +923,13 @@ footer {
         <circle cx="60" cy="130" r="18" fill="#C4687A" opacity="0.18"/>
         <circle cx="60" cy="130" r="6" fill="#C4687A"/>
         <text x="60" y="185" text-anchor="middle" font-family="Jost, sans-serif" font-size="9" font-weight="400" letter-spacing="2" fill="rgba(255,255,255,0.5)" text-transform="uppercase">Partner A</text>
-        <text x="60" y="200" text-anchor="middle" font-family="Cormorant Garamond, serif" font-size="10" font-style="italic" fill="rgba(255,255,255,0.3)">private input</text>
+        <text x="60" y="200" text-anchor="middle" font-family="Cormorant Garamond, serif" font-size="10" font-style="italic" fill="rgba(255,255,255,0.3)">separate input</text>
 
         <!-- Partner B label + dot -->
         <circle cx="660" cy="130" r="18" fill="#4a90d9" opacity="0.18"/>
         <circle cx="660" cy="130" r="6" fill="#4a90d9"/>
         <text x="660" y="185" text-anchor="middle" font-family="Jost, sans-serif" font-size="9" font-weight="400" letter-spacing="2" fill="rgba(255,255,255,0.5)" text-transform="uppercase">Partner B</text>
-        <text x="660" y="200" text-anchor="middle" font-family="Cormorant Garamond, serif" font-size="10" font-style="italic" fill="rgba(255,255,255,0.3)">private input</text>
+        <text x="660" y="200" text-anchor="middle" font-family="Cormorant Garamond, serif" font-size="10" font-style="italic" fill="rgba(255,255,255,0.3)">separate input</text>
 
         <!-- Flowing rose stream (Partner A → center) -->
         <path class="flow-rose" d="M 80 130 Q 200 90, 340 130" stroke="url(#roseFlow)" stroke-width="1.5" fill="none" stroke-linecap="round"/>
@@ -944,10 +964,12 @@ footer {
       </svg>
     </div>
 
+    <p class="different-body reveal reveal-delay-2" style="margin-top:32px; margin-bottom:0;">(re)connect holds both perspectives, then reveals what begins to emerge between you.</p>
+
     <div class="callout reveal reveal-slow reveal-delay-3">
-      Two sides of the story.<br><em>One truth of the relationship.</em>
+      Two sides of the story.<br><em>One relationship comes into view.</em>
     </div>
-    <p class="different-close reveal reveal-delay-2"><strong>The synthesis is what sets it apart.</strong> It gets sharper the longer you use it, learning the patterns that repeat, the moments that matter. Not a generic algorithm. Something that knows you.</p>
+    <p class="different-close reveal reveal-delay-2"><strong>The synthesis is what sets it apart:</strong> more attuned over time, learning patterns that repeat, moments that matter, and where the relationship needs support.</p>
   </div>
 </section>
 
@@ -966,7 +988,7 @@ footer {
         <div class="step-num">01</div>
         <div class="step-content">
           <div class="step-title">You begin by sharing your experience — <em>on your own terms.</em></div>
-          <div class="step-body">Every day, each partner takes a few minutes to reflect on the relationship independently. Closeness. Support. Conflict. Appreciation. Trust. Your answers are yours alone. This is your (re)turn: a daily return to yourself, and toward your partner.</div>
+          <div class="step-body">Every day, each partner takes a few minutes to reflect on the relationship independently. Closeness. Support. Conflict. Appreciation. Trust. Individual reflections are not automatically shared word-for-word. They help (re)connect understand what each person may be carrying into the relationship. This is your (re)turn: a daily return to yourself, and toward your partner.</div>
         </div>
       </div>
       <div class="step reveal reveal-delay-1">
@@ -995,7 +1017,7 @@ footer {
     <div class="product-header">
       <span class="section-eyebrow reveal">The experience</span>
       <h2 class="section-title reveal reveal-delay-1">Multiple dimensions.<br><em>One relationship.</em></h2>
-      <p class="product-sub reveal reveal-delay-2">The daily practice. The intelligence it builds. The truth it surfaces.</p>
+      <p class="product-sub reveal reveal-delay-2">The daily practice. The intelligence it builds. The understanding it surfaces.</p>
     </div>
 
     <div class="three-phones">
