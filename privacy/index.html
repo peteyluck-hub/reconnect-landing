@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Privacy Policy · (re)connect</title>
+<meta name="description" content="Privacy Policy for the (re)connect pre-launch website and waitlist.">
+<link rel="canonical" href="https://reconnectapp.ai/privacy">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=Jost:wght@200;300;400;500&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+  --rose: #C4687A;
+  --blue: #4a90d9;
+  --navy: #1F3050;
+  --cream: #FAFAF7;
+  --text: #1a1a2e;
+  --text2: #5a5a6e;
+  --text3: #9a9aaa;
+  --bd: rgba(0,0,0,0.08);
+}
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Jost', sans-serif;
+  background: var(--cream);
+  color: var(--text);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ── LOGO ── */
+.logo { display: inline-flex; align-items: baseline; }
+.lr { color: var(--rose); font-weight: 300; }
+.li { font-family: 'Cormorant Garamond', serif; font-style: italic; color: var(--rose); }
+.lc { font-weight: 300; letter-spacing: 1.5px; color: var(--blue); }
+
+/* ── HEADER ── */
+header.legal-header {
+  padding: 24px 32px;
+  border-bottom: 0.5px solid var(--bd);
+  background: rgba(250,250,247,0.92);
+  backdrop-filter: blur(12px);
+}
+header.legal-header a { text-decoration: none; display: inline-block; }
+header.legal-header .logo { font-size: 14px; }
+header.legal-header .lr { font-size: 15px; }
+header.legal-header .li { font-size: 18px; }
+header.legal-header .lc { font-size: 15px; }
+
+/* ── BODY READING LAYOUT ── */
+main.legal {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 56px 32px 80px;
+}
+main.legal h1 {
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 400;
+  font-size: 36px;
+  color: var(--navy);
+  margin-bottom: 8px;
+  letter-spacing: -0.01em;
+}
+main.legal .effective-date {
+  font-size: 13px;
+  font-weight: 300;
+  color: var(--text2);
+  margin-bottom: 36px;
+  letter-spacing: 0.02em;
+}
+main.legal h2 {
+  font-family: 'Jost', sans-serif;
+  font-weight: 400;
+  font-size: 17px;
+  color: var(--navy);
+  margin-top: 36px;
+  margin-bottom: 12px;
+  letter-spacing: 0.01em;
+}
+main.legal h3 {
+  font-family: 'Jost', sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  color: var(--navy);
+  margin-top: 22px;
+  margin-bottom: 10px;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+}
+main.legal p {
+  font-size: 15px;
+  font-weight: 300;
+  color: var(--text);
+  margin-bottom: 14px;
+  line-height: 1.7;
+}
+main.legal ul {
+  margin-bottom: 14px;
+  padding-left: 20px;
+  list-style-type: disc;
+}
+main.legal li {
+  font-size: 15px;
+  font-weight: 300;
+  color: var(--text);
+  margin-bottom: 6px;
+  line-height: 1.7;
+}
+main.legal a {
+  color: var(--blue);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+main.legal address {
+  font-style: normal;
+  font-size: 15px;
+  font-weight: 300;
+  color: var(--text);
+  line-height: 1.7;
+  margin-bottom: 14px;
+}
+
+/* Notice at Collection callout — quiet, not warning */
+.notice-at-collection {
+  border-left: 1px solid var(--bd);
+  padding: 14px 0 14px 18px;
+  margin: 0 0 32px 0;
+}
+.notice-at-collection .label {
+  font-size: 12px;
+  font-weight: 400;
+  color: var(--text2);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 8px;
+}
+.notice-at-collection p {
+  font-size: 14px;
+  font-weight: 300;
+  color: var(--text);
+  line-height: 1.7;
+  margin-bottom: 0;
+}
+
+/* ── FOOTER ── */
+footer {
+  padding: 48px 32px 40px;
+  border-top: 0.5px solid var(--bd);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  text-align: center;
+  background: var(--cream);
+}
+footer .logo { font-size: 14px; }
+footer .lr { font-size: 15px; }
+footer .li { font-size: 18px; }
+footer .lc { font-size: 15px; }
+.footer-disclaimer {
+  font-size: 11px;
+  font-weight: 300;
+  color: rgba(154,154,170,0.8);
+  line-height: 1.55;
+  max-width: 640px;
+  margin: 4px auto 4px;
+  padding: 0 8px;
+}
+.footer-copyright { font-size: 11px; font-weight: 300; color: var(--text3); }
+.footer-legal-links { font-size: 11px; font-weight: 300; }
+.footer-legal-links a {
+  color: var(--text3);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  text-decoration-thickness: 1px;
+  margin: 0 4px;
+}
+.footer-legal-links a:hover { color: var(--text2); }
+
+/* ── MOBILE ── */
+@media (max-width: 600px) {
+  header.legal-header { padding: 20px 24px; }
+  main.legal { padding: 40px 24px 64px; }
+  main.legal h1 { font-size: 28px; }
+  main.legal h2 { font-size: 16px; }
+  main.legal p, main.legal li { font-size: 15px; }
+  .notice-at-collection { padding: 12px 0 12px 14px; }
+  footer { padding: 40px 24px 32px; }
+}
+</style>
+</head>
+<body>
+
+<header class="legal-header">
+  <a href="/" aria-label="(re)connect home">
+    <span class="logo">
+      <span class="lr">(</span><span class="li">re</span><span class="lr">)</span><span class="lc">connect</span>
+    </span>
+  </a>
+</header>
+
+<main class="legal">
+  <h1>Privacy Policy</h1>
+  <p class="effective-date">Effective Date: May 7, 2026</p>
+
+  <aside class="notice-at-collection" aria-label="Notice at Collection">
+    <div class="label">Notice at Collection</div>
+    <p>We collect your email address to add you to the (re)connect waitlist and send launch updates and related communications. We also collect certain online identifiers and Site usage information through hosting, security, analytics, and similar technologies used to operate and understand use of the Site. For more information, including retention and your choices, please review the Privacy Policy below.</p>
+  </aside>
+
+  <p>This Privacy Policy explains how MindRight Behavioral Health Psychotherapy Group, Inc. ("Company," "we," "us," or "our") collects, uses, discloses, and otherwise processes information when you visit the (re)connect pre-launch website and join our waitlist (the "Site").</p>
+
+  <h2>1. Scope</h2>
+  <p>This Privacy Policy applies only to the current pre-launch Site and waitlist. It does not describe the privacy practices of any future application, platform, or service that may launch later. If and when a full application or service launches, a separate or updated privacy policy may apply.</p>
+
+  <h2>2. Information We Collect</h2>
+
+  <h3>Information You Provide Directly</h3>
+  <p>We collect the information you provide directly to us, including:</p>
+  <ul>
+    <li>your email address when you join the waitlist; and</li>
+    <li>any information you include if you contact us directly.</li>
+  </ul>
+
+  <h3>Information Collected Automatically</h3>
+  <p>When you visit the Site, we and our service providers may automatically collect certain information through hosting, security, analytics, and similar technologies used to operate and understand use of the Site, including:</p>
+  <ul>
+    <li>IP address;</li>
+    <li>browser type and browser settings;</li>
+    <li>device information;</li>
+    <li>pages viewed and interactions with the Site;</li>
+    <li>date and time of visits;</li>
+    <li>referring and exit pages or URLs; and</li>
+    <li>cookie identifiers and similar online identifiers.</li>
+  </ul>
+  <p>We currently use Vercel Analytics to understand Site traffic and usage. We may use additional analytics, advertising, or marketing technologies in the future. If we do, we will update this Privacy Policy as appropriate.</p>
+
+  <h2>3. Cookies and Tracking Technologies</h2>
+  <p>We use cookies and similar technologies necessary to operate the Site and to understand Site traffic and usage through Vercel Analytics. These technologies may be set by us or by service providers helping us operate the Site.</p>
+  <p>If required by applicable law, we may provide additional cookie notices, consent mechanisms, or controls.</p>
+
+  <h2>4. How We Use Information</h2>
+  <p>We may use the information we collect to:</p>
+  <ul>
+    <li>operate, maintain, and improve the Site;</li>
+    <li>administer the waitlist;</li>
+    <li>send waitlist updates, launch announcements, and related promotional emails;</li>
+    <li>measure and understand Site usage and traffic;</li>
+    <li>detect, prevent, and address fraud, abuse, security issues, or technical issues; and</li>
+    <li>comply with law and enforce our legal rights, agreements, and policies.</li>
+  </ul>
+
+  <h2>5. How We Disclose Information</h2>
+  <p>We may disclose information:</p>
+  <ul>
+    <li>to vendors, service providers, and contractors that help us operate the Site, including hosting, waitlist management, email delivery, analytics, security, and similar business-support functions;</li>
+    <li>if required by law, subpoena, court order, or other legal process;</li>
+    <li>to protect the rights, safety, and property of Company, our users, or others; and</li>
+    <li>in connection with an actual or proposed merger, acquisition, financing, sale of assets, reorganization, bankruptcy, or similar business transaction.</li>
+  </ul>
+  <p>We do not sell personal information for money.</p>
+
+  <h2>6. Retention</h2>
+  <p>We retain personal information for as long as reasonably necessary for the purposes described in this Privacy Policy, including maintaining the waitlist, sending launch-related communications, complying with legal obligations, resolving disputes, enforcing agreements, and protecting our business.</p>
+  <p>For waitlist email addresses, we currently expect to retain them until the earliest of:</p>
+  <ul>
+    <li>you unsubscribe or request deletion;</li>
+    <li>the waitlist is discontinued; or</li>
+    <li>we determine retention is no longer reasonably necessary for the disclosed purposes.</li>
+  </ul>
+
+  <h2>7. Your Choices</h2>
+
+  <h3>Email Communications</h3>
+  <p>You may unsubscribe from promotional and waitlist emails at any time by clicking the unsubscribe link in any such email or by contacting us at <a href="mailto:privacy@reconnectapp.ai">privacy@reconnectapp.ai</a>.</p>
+
+  <h3>Browser and Device Controls</h3>
+  <p>You may be able to adjust your browser or device settings to limit certain cookies or tracking technologies. Please note that if you disable some technologies, portions of the Site may not function as intended.</p>
+
+  <h2>8. California Online Privacy Protection Act (CalOPPA) Disclosures</h2>
+  <p>California law requires us to provide the following additional information:</p>
+  <ul>
+    <li>Categories of personally identifiable information collected: email address; online identifiers such as IP address and cookie identifiers; and internet or other electronic network activity information such as browsing and interaction data collected on the Site.</li>
+    <li>Categories of third parties with whom we may share that information: service providers and vendors such as hosting providers, email delivery providers, analytics providers, and similar business-support vendors.</li>
+    <li>Process to review or request changes to information: you may contact us at <a href="mailto:privacy@reconnectapp.ai">privacy@reconnectapp.ai</a> to request access to, correction of, or deletion of your waitlist email address, to the extent applicable.</li>
+    <li>How users are notified of material changes: we will post the updated Privacy Policy on this page and update the Effective Date above. If required by law, we may provide additional notice.</li>
+    <li>Do Not Track: At this time, the Site does not respond to browser "Do Not Track" signals in a different manner than it otherwise would.</li>
+  </ul>
+
+  <h2>9. Additional Notice for California Residents</h2>
+  <p>We do not currently believe we meet the thresholds that make the California Consumer Privacy Act ("CCPA"), as amended by the California Privacy Rights Act ("CPRA"), applicable to us. We are providing the following disclosures as a conservative practice.</p>
+  <p>For this pre-launch Site, we may collect the following categories of personal information:</p>
+  <ul>
+    <li>identifiers, such as email address, IP address, and online identifiers; and</li>
+    <li>internet or other electronic network activity information, such as Site browsing and interaction data.</li>
+  </ul>
+  <p>We collect this information for the purposes described in this Privacy Policy, including operating the Site, maintaining the waitlist, communicating with interested users, and measuring and improving Site performance.</p>
+  <p>We do not sell personal information for money, and we do not currently share personal information for cross-context behavioral advertising.</p>
+  <p>If you are a California resident and want to inquire about your information or request deletion of your waitlist email address, you may contact us at <a href="mailto:privacy@reconnectapp.ai">privacy@reconnectapp.ai</a>.</p>
+
+  <h2>10. Children</h2>
+  <p>The Site is not directed to children under 18, and we do not knowingly collect personal information from children through the waitlist.</p>
+
+  <h2>11. Security</h2>
+  <p>We use reasonable administrative, technical, and organizational safeguards designed to protect personal information. However, no method of transmission or storage is completely secure, and we cannot guarantee absolute security.</p>
+
+  <h2>12. Changes to This Privacy Policy</h2>
+  <p>We may update this Privacy Policy from time to time. If we do, we will post the revised Privacy Policy here and update the Effective Date above.</p>
+
+  <h2>13. Contact</h2>
+  <p>If you have questions about this Privacy Policy or wish to contact us regarding your information, you may reach us at:</p>
+  <address>
+    MindRight Behavioral Health Psychotherapy Group, Inc.<br>
+    6450 Sunset Blvd #1068<br>
+    Hollywood, CA 90028<br>
+    United States<br>
+    <a href="mailto:privacy@reconnectapp.ai">privacy@reconnectapp.ai</a>
+  </address>
+</main>
+
+<footer>
+  <div class="logo">
+    <span class="lr">(</span><span class="li">re</span><span class="lr">)</span><span class="lc">connect</span>
+  </div>
+  <p class="footer-disclaimer">(re)connect is currently a pre-launch informational site and waitlist only. The site does not provide therapy, counseling, medical services, or emergency support.</p>
+  <p class="footer-copyright">© 2026 MindRight Behavioral Health Psychotherapy Group, Inc. All rights reserved.</p>
+  <nav class="footer-legal-links" aria-label="Legal"><a href="/terms">Terms of Use</a> · <a href="/privacy">Privacy Policy</a></nav>
+</footer>
+
+</body>
+</html>

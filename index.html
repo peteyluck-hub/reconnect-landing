@@ -754,11 +754,62 @@ nav {
 
 /* ── FOOTER ── */
 footer {
-  padding: 40px 48px;
+  padding: 48px 32px 40px;
   border-top: 0.5px solid var(--bd);
-  display: flex; align-items: center; justify-content: space-between;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  text-align: center;
 }
 .footer-note { font-size: 11px; font-weight: 300; color: var(--text3); }
+
+/* ── LEGAL: footer disclaimer + copyright + legal links (G design memo, May 7 2026) ── */
+.footer-disclaimer {
+  font-size: 11px;
+  font-weight: 300;
+  color: rgba(154,154,170,0.8);
+  line-height: 1.55;
+  max-width: 640px;
+  margin: 4px auto 4px;
+  padding: 0 8px;
+}
+.footer-copyright {
+  font-size: 11px;
+  font-weight: 300;
+  color: var(--text3);
+}
+.footer-legal-links {
+  font-size: 11px;
+  font-weight: 300;
+}
+.footer-legal-links a {
+  color: var(--text3);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  text-decoration-thickness: 1px;
+  margin: 0 4px;
+}
+.footer-legal-links a:hover { color: var(--text2); }
+
+/* ── LEGAL: waitlist consent text below Join Waitlist buttons ── */
+.consent-text {
+  font-size: 12px;
+  font-weight: 300;
+  color: var(--text2);
+  line-height: 1.55;
+  max-width: 420px;
+  margin: 12px auto 0;
+  text-align: center;
+  padding: 0 16px;
+}
+.consent-text a {
+  color: inherit;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  text-decoration-thickness: 1px;
+}
+.consent-text a:hover { color: var(--text); }
 
 /* ── ANIMATIONS ── */
 @keyframes fadeUp {
@@ -858,6 +909,7 @@ footer {
     <input class="hero-input" type="email" id="hero-email" placeholder="Your email address" required/>
     <button class="hero-btn" type="submit">Join waitlist</button>
   </form>
+  <p class="consent-text">By clicking "Join Waitlist," you agree to our <a href="/terms">Terms of Use</a> and acknowledge our <a href="/privacy">Privacy Policy</a>. You also agree to receive waitlist updates, launch announcements, and related promotional emails from (re)connect. You can unsubscribe at any time.</p>
   <div class="form-error" id="hero-error" hidden></div>
   <div id="hero-success" class="success-state" style="margin-top:16px;">
     <div class="success-title">You're on the list.</div>
@@ -1261,6 +1313,7 @@ footer {
       <input class="waitlist-input" type="email" id="waitlist-email" placeholder="Your email address" required/>
       <button class="waitlist-btn" type="submit">Join waitlist</button>
     </form>
+    <p class="consent-text reveal reveal-delay-2">By clicking "Join Waitlist," you agree to our <a href="/terms">Terms of Use</a> and acknowledge our <a href="/privacy">Privacy Policy</a>. You also agree to receive waitlist updates, launch announcements, and related promotional emails from (re)connect. You can unsubscribe at any time.</p>
     <div class="form-error" id="waitlist-error" hidden></div>
 
     <div id="waitlist-success" class="success-state" style="margin-top:0;">
@@ -1283,8 +1336,9 @@ footer {
   <div class="logo" style="font-size:14px;">
     <span class="lr" style="font-size:15px;">(</span><span class="li" style="font-size:18px;">re</span><span class="lr" style="font-size:15px;">)</span><span class="lc" style="font-size:15px;">connect</span>
   </div>
-  <div class="footer-note">© 2026 MindRight Behavioral Health Psychotherapy Group, LLC · Andrew Sarver, LMFT · Patent Pending</div>
-  <div class="footer-note">Built with clinical integrity. Designed for real couples.</div>
+  <p class="footer-disclaimer">(re)connect is currently a pre-launch informational site and waitlist only. The site does not provide therapy, counseling, medical services, or emergency support.</p>
+  <p class="footer-copyright">© 2026 MindRight Behavioral Health Psychotherapy Group, Inc. All rights reserved.</p>
+  <nav class="footer-legal-links" aria-label="Legal"><a href="/terms">Terms of Use</a> · <a href="/privacy">Privacy Policy</a></nav>
 </footer>
 
 <script>
@@ -1402,6 +1456,7 @@ async function submitForm(e, type) {
         source: 'landing-v2-' + type,
         referrer: document.referrer || null,
         user_agent: navigator.userAgent,
+        consented_at: new Date().toISOString(),
       }),
     });
 
